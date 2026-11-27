@@ -28,7 +28,7 @@ GREEN, GREEN_2, LIME, LIME_SOFT, PAPER, INK = "#163200", "#2E5A12", "#A0E870", "
 P = {
     "streets": dict(sea="#E4ECE7", land="#FFFFFF", other_land="#F3F5F1", water="#CFE3DA", zone="0,0,0,0",
                     svc_fill="160,232,112,80", svc_line=GREEN, svc_w="0.55",
-                    minor="22,50,0,40", minor_w=0.09, mid="22,50,0,110", mid_w=0.2, major=GREEN, major_w=0.42,
+                    minor="22,50,0,34", minor_w=0.09, mid="94,143,58,150", mid_w=0.2, major="#5E8F3A", major_w=0.42,
                     label=INK, label_bg="#FFFFFF", dot=GREEN, halo="160,232,112,150", muni="#3F4A43", ink=INK),
     "zones": dict(sea="#D6E8E0", land=PAPER, other_land="#F1F3EE", water="#BFDCD1", zone="22,50,0,38",
                   svc_fill="160,232,112,150", svc_line=GREEN, svc_w="0.7",
