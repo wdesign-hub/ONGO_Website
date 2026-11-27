@@ -274,7 +274,7 @@ layout.addLayoutItem(sb)
 credit_color = "#3F4A43" if VARIANT != "night" else "#A9BBA9"
 label("© OpenStreetMap contributors via Overture Maps · Boundaries: geoBoundaries", 6, credit_color, 10, H - 9, bold=False)
 
-if VARIANT == "streets":
+if VARIANT == "streets" and not os.environ.get("NO_TITLE"):
     # Poster-style title, after the third reference.
     box(10, 10, 92, 30, "255,255,255,238")
     label("ALL OF DOHA", 15, GREEN, 15, 13.5, spacing=2.2)
@@ -294,7 +294,7 @@ elif VARIANT == "zones":
         else:
             box(17.2, y + 0.2, 4.6, 4.6, GREEN, stroke="#A0E870", radius=2.3)
         label(txt, 7.8, INK, 27, y + 0.2, bold=False)
-else:
+elif VARIANT == "night":
     label("ALL OF DOHA", 15, LIME, 12, 12, spacing=2.4)
     label("Live washer coverage · 25°17′N 51°32′E", 7.5, "#A9BBA9", 12, 22.5, bold=False)
 
@@ -306,7 +306,7 @@ svg.forceVectorOutput = True
 svg.textRenderFormat = Qgis.TextRenderFormat.AlwaysText
 svg.exportMetadata = False
 svg.simplifyGeometries = True
-base = os.path.join(OUT, f"ongo-doha-map-{VARIANT}")
+base = os.path.join(OUT, f"ongo-doha-map-{VARIANT}" + ("-embed" if os.environ.get("NO_TITLE") else ""))
 print("svg", exp.exportToSvg(base + ".svg", svg))
 img = QgsLayoutExporter.ImageExportSettings()
 img.dpi = 144
